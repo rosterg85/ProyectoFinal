@@ -7,8 +7,8 @@ function LoginForm({ onLogin }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Aquí puedes implementar la lógica de autenticación
-    // Por ahora, solo comparamos con credenciales hardcodeadas
+    // Aquí se inplementa la lógica de autenticación
+    // Por ahora, solo comparamos con credenciales almacenadas
     const users = [
       { username: 'usuario1', password: 'contrasena1' },
       { username: 'usuario2', password: 'contrasena2' }
