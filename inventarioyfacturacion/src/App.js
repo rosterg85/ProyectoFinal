@@ -1,7 +1,9 @@
-import './App.css';
+import './componentes/main.css';
 import React, { useState } from 'react';
-import LoginForm from "./componentes/LoginForm"
+import FormRegistro from './proyectofinal/Registro';
+import FormLog from './proyectofinal/Login';
 import HomePage from './componentes/Homepage';
+
 
 function App() {
   
@@ -13,6 +15,7 @@ function App() {
   return (
     <div className="App">
       <header className="InventarioyVentas">
+      
       {loggedInUser ? (
         <HomePage username={loggedInUser} />
       ) : (

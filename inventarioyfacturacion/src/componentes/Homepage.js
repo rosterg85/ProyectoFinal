@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import './estilos.css';
+
+
 
 const productsData = [
   { id: 1, name: 'Producto 1', stock: 10, empaque: 'Caja', price: 10.50 },
@@ -108,69 +109,69 @@ const handleAddProduct = () => {
 
   return (
     <div className="home-page">
-        
+
       <h2>Bienvenido, A la pagina de inventario {username}!</h2>
       
-      <h3>Productos</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Seleccionar</th>
-            <th>Nombre</th>
-            <th>Existencias</th>
-            <th>Tipo de Empaque</th>
-            <th>Precio</th>
+      
+      <div class="flex relative overflow-x-auto shadow-md sm:rounded-lg">
+      <table class=" text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <caption class="m-1 text-xl">Productos</caption>
+        <thead   class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+          <tr class="border-y-4">
+            <th scope="col" class="p-4">Seleccionar</th>
+            <th scope="col" class="p-4">Nombre</th>
+            <th scope="col" class="p-4">Existencias</th>
+            <th scope="col" class="p-4">Tipo de Empaque</th>
+            <th scope="col" class="p-4">Precio</th>
           </tr>
         </thead>
         <tbody>
           {products.map(product => (
-            <tr key={product.id}>
-              <td>
-                <input
-                  type="radio"
-                  name="selectedProduct"
-                  value={product.id}
-                  checked={selectedProductId === product.id}
+            <tr key={product.id} class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+              <td class="px-6 py-4">
+                <input type="radio" name="selectedProduct" value={product.id} checked={selectedProductId === product.id}
                   onChange={() => handleRowSelect(product.id)}
                 />
               </td>
-              <td>{product.name}</td>
-              <td>${product.stock.toFixed(0)}</td>
-              <td>{product.empaque}</td>
-              <td>${product.price.toFixed(0)}</td>
+              <td class="px-6 py-4">{product.name}</td>
+              <td class="px-6 py-4">{product.stock}</td>
+              <td class="px-6 py-4">{product.empaque}</td>
+              <td class="px-6 py-4">${product.price.toFixed(1)}</td>
             </tr>
           ))}
         </tbody>
       </table>
       
-      <div className="form-group">
-        <label htmlFor="newPrice">Nuevo Precio: </label>
-        <input type="number" id="newPrice" min="0" value={newPrice} onChange={handlePriceChange} />
+      <div class="m-4 flex-wrap bg-gray-50  border-gray-300  text-center text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block py-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+        <label class="m-2" htmlFor="newPrice">Nuevo Precio: </label>
+        <input class="border border-gray-800" type="number" id="newPrice" min="0" value={newPrice} onChange={handlePriceChange} />
+        <label class="m-2" htmlFor="Adicionar">Adicionar productos: </label>
+        <input class=" border border-gray-800" type="number" id="Adicionar" min="0" value={Adicionar} onChange={handleStockChange} />
+       
+       <div>
+        <button  class="m-8 text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800" onClick={handleUpdateProduct}>Actualizar Producto</button>
+        <button  class="m-8 text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800" onClick={handleDelProduct}>Borrar Producto</button>
+         </div>
       </div>
-      <div className="form-group">
-        <label htmlFor="Adicionar">Adicionar productos: </label>
-        <input type="number" id="Adicionar" min="0" value={Adicionar} onChange={handleStockChange} />
       </div>
-      <button onClick={handleUpdateProduct}>Actualizar Producto</button>
-      <button onClick={handleDelProduct}>Borrar Producto</button>
-      <div className="home-page">
-      <h3>Adicionar Producto</h3>
-      <table>
-      <thead>
-          <tr>
-            <th>Nombre</th>
-            <th>Existencias</th>
-            <th>Tipo de Empaque</th>
-            <th>Precio</th>
+      <div class="font-sans text-black-500" >
+      <h3 class="m-8 text-2xl" >Agregar nuevo Producto</h3>
+      <table class=" text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+          <tr class="border-y-4">
+            <th scope="col" class="p-4">Nombre</th>
+            <th scope="col" class="p-4">Existencias</th>
+            <th scope="col" class="p-4">Tipo de Empaque</th>
+            <th scope="col" class="p-4">Precio</th>
           </tr>
         </thead>
         <tbody>
-            <td> <input   type="text" id="newName" name="newName"   value={newName} onChange={manejoCambioNombre} /> </td>
-            <td> <input   type="text" id="newExistencia" name="newExistencia"  value={newExistencia} onChange={manejoCambioExistencia}  /> </td>
-            <td> <input   type="text" id="newTipo" name="newTipo" value={newTipo} onChange={manejoCambioTipo} /> </td>
-            <td> <input   type="text" id="newPrecio" name="newPrecio" value={newPrecio}  onChange={manejoCambioPrecio}/> </td>
+            <td class="px-6 py-4"> <input class="border border-gray-800"  type="text" id="newName" name="newName"   value={newName} onChange={manejoCambioNombre} /> </td>
+            <td class="px-6 py-4"> <input class="border border-gray-800"  type="text" id="newExistencia" name="newExistencia"  value={newExistencia} onChange={manejoCambioExistencia}  /> </td>
+            <td class="px-6 py-4"> <input class="border border-gray-800"  type="text" id="newTipo" name="newTipo" value={newTipo} onChange={manejoCambioTipo} /> </td>
+            <td class="px-6 py-4"> <input class="border border-gray-800"  type="text" id="newPrecio" name="newPrecio" value={newPrecio}  onChange={manejoCambioPrecio}/> </td>
         </tbody>
-        <button onClick={handleAddProduct}>Ingresar Producto</button>
+        <button  class="text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800" onClick={handleAddProduct}>Ingresar Producto</button>
       </table>
 
       </div>

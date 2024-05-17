@@ -22,21 +22,23 @@ function LoginForm({ onLogin }) {
   };
 
   return (
+    <div class="container mx-auto px-4 sm:px-8 py-8">
     <form onSubmit={handleSubmit}>
-      <input
+      <input  className="w-48 block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
         type="text"
-        placeholder="Nombre de usuario"
+        placeholder="Usuario"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
       />
-      <input
+      <input  className="w-48 block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
         type="password"
         placeholder="Contraseña"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <button type="submit">Iniciar sesión</button>
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">Iniciar sesión</button>
     </form>
+    </div>
   );
 }
 
