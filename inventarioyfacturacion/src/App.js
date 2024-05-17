@@ -1,7 +1,5 @@
 import './componentes/main.css';
 import React, { useState } from 'react';
-import FormRegistro from './proyectofinal/Registro';
-import FormLog from './proyectofinal/Login';
 import HomePage from './componentes/Homepage';
 
 
